@@ -13,6 +13,14 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String originalUrl;
-    private String shortenerUrl;
+    private String shortUrl;
     private LocalDateTime expirationDateTime;
+
+    public Url() {}
+
+    public void createUrl(String _originalUrl, String _shortUrl) {
+        this.originalUrl = _originalUrl;
+        this.shortUrl = _shortUrl;
+        this.expirationDateTime = LocalDateTime.now().plusDays(30);
+    }
 }
